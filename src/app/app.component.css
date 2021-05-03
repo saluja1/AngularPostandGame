@@ -1,0 +1,23 @@
+.container,
+.row {
+    height: 100vh;
+}
+.textCenter{
+    text-align: center;
+}
+.grid {
+    display: grid;
+    grid-template-columns: 50px 50px 50px;
+    grid-gap: 15px;
+    align-content: center;
+    justify-content: center;
+}
+
+.box {
+    width: auto;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
