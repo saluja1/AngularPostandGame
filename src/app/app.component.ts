@@ -34,7 +34,7 @@ export class AppComponent {
     this.checkIsWinner();
     if(this.isWinner){
         this.toastr.success(this.winMsg);
-        this.reloadGame();
+		setTimeout(this.reloadGame, 3000);
     	return;
     }
   }
