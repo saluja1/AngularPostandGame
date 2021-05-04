@@ -10,6 +10,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './login/login.component';
+import { GameComponent } from './game/game.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { GameModule } from './game/game.module';
@@ -25,7 +26,8 @@ import { map } from "rxjs/operators";
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,

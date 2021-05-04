@@ -9,7 +9,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
-  declarations: [GameComponent],
+  declarations: [],
   imports: [
     CommonModule,
 	FontAwesomeModule,
