@@ -1,0 +1,31 @@
+<div class="textCenter">
+    <h1 >TicTacToe</h1>
+    <div class="grid">
+        <div *ngFor="let item of itemArray; index as i">
+            <div class="card">
+                <div (click)="handleClick(i)" class="card-box box">
+                    <div [ngSwitch]="item">
+                        <div *ngSwitchCase="'cross'">
+                            <fa-icon [icon]="faTimes" class="icon text-info"></fa-icon>
+                        </div>
+                        <div *ngSwitchCase="'circle'">
+                            <fa-icon [icon]="faCircle" class="icon text-warning"></fa-icon>
+                        </div>
+                        <div *ngSwitchDefault>
+                            <fa-icon [icon]="faHandPointer" class="icon"></fa-icon>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <button (click)="reloadGame()" class="btn btn-info text-uppercase pl-5 pr-5">
+        Reload Game
+    </button><br><br>
+    <button (click)="logout()" class="btn btn-danger text-uppercase pl-5 pr-5">
+        LogOut Game
+    </button>
+</div>
