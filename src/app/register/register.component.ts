@@ -17,7 +17,8 @@ export class RegisterComponent implements OnInit {
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
-        private authService: AuthService
+        private authService: AuthService,
+        private toastr:ToastrService
     ) { }
 
     ngOnInit() {
@@ -32,14 +33,20 @@ export class RegisterComponent implements OnInit {
     // convenience getter for easy access to form fields
     get f() { return this.form.controls; }
 
-    onSubmit() {
+
+	async onSubmit(){
         this.submitted = true;
 
-
-        // stop here if form is invalid
- 
         this.loading = true;
+	     // stop here if form is invalid
+        if (this.form.invalid) {
+        	this.loading = false;
+            return;
+        }
+	    var data = await this.authService.register(this.form.value);
+        this.loading = false;
 
-        console.log("here")
-    }
+  }
+
+
 }

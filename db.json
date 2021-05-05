@@ -9,15 +9,18 @@
   "users": [
     {
       "id": 1,
-      "name": "admin",
+      "firstName": "admin",
+      "lastName": "admin",
+      "username": "admin",
       "password": "admin"
     },
     {
       "id": 2,
-      "name": "admin2",
+      "firstName": "admin2",
+      "lastName": "admin2",
+      "username": "admin2",
       "password": "admin2"
     }
-
   ],
   "comments": [
     {
