@@ -1,4 +1,5 @@
 <div class="textCenter">
+        
     <h1 >TicTacToe</h1>
     <div class="grid">
         <div *ngFor="let item of itemArray; index as i">
@@ -25,6 +26,10 @@
     <button (click)="reloadGame()" class="btn btn-info text-uppercase pl-5 pr-5">
         Reload Game
     </button><br><br>
+    <a class="btn btn-success text-uppercase pl-5 pr-5" [routerLink]="['/post']">
+        Check Post
+    </a>
+    <br><br> 
     <button (click)="logout()" class="btn btn-danger text-uppercase pl-5 pr-5">
         LogOut Game
     </button>

@@ -21,8 +21,11 @@ export class GameComponent {
   faHandPointer = faHandPointer;
 
 
-  constructor(private toastr:ToastrService, private authService: AuthService, private router: Router){}
+  constructor(private toastr:ToastrService, private authService: AuthService, private router: Router){
+    console.log(this.authService.checkUserRole());
+  }
   
+
   logout(){
     this.authService.logout();
     this.router.navigateByUrl('/login');

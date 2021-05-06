@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
+import { AuthService } from './auth.service';
+
 
 import { AppComponent } from './app.component';
 import { ToastrModule } from 'ngx-toastr';
@@ -11,10 +13,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './login/login.component';
 import { GameComponent } from './game/game.component';
+import { RegisterComponent } from './register/register.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { GameModule } from './game/game.module';
-import { RegisterComponent } from './register/register.component';
+import { PostModule } from './post/post.module';
 
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
@@ -43,9 +46,10 @@ import { map } from "rxjs/operators";
   ReactiveFormsModule, 
  AppRoutingModule,
  HttpModule,
- HttpClientModule
+ HttpClientModule,
+ PostModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

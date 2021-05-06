@@ -15,7 +15,7 @@ import { ToastrService } from 'ngx-toastr';
 export class AuthService {
  
   isLoogedIn = false;
-
+  userRole = "user";
   constructor(private toastr:ToastrService, private http: HttpClient, private router: Router) { }
 
 
@@ -23,6 +23,7 @@ export class AuthService {
 
 	var usersList:any = [];
 	var userLoggedIn = false;
+	var userLoggedInRole = this.userRole;
 
  	await this.http.get<any[]>('http://localhost:3000/users')
 	.toPromise()
@@ -33,21 +34,34 @@ export class AuthService {
 			if((item.username == userData.email) && (item.password == userData.password)){
 				usersList.push(item);
 			    userLoggedIn = true;
+			    if(item.role == "admin"){
+			    	userLoggedInRole = item.role;
+			    }
+			    localStorage.setItem('ACCESS_TOKEN', "access_token");
 			} 
 		}
     })
     .catch(err=> { console.log(err) });
     this.isLoogedIn = userLoggedIn;
+    this.userRole = userLoggedInRole;
+    console.log(this.isLoogedIn, this.userRole, usersList)
 	return usersList;
   }
 
 
   public isLoggedIn(){
+    return localStorage.getItem('ACCESS_TOKEN') !== null;
     return this.isLoogedIn;
   }
 
+  public checkUserRole(){
+    return this.userRole;
+  }
+
+
   public logout(){
 	this.isLoogedIn = false;
+    localStorage.removeItem('ACCESS_TOKEN');
   }
 
    async register(userData):Promise<any>{

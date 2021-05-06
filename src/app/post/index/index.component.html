@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>Post</h1>
+  
+    <a href="#" *ngIf="isAdmin"  routerLink="/post/create/" class="btn btn-success">Create New Post</a>
+    <button (click)="logout()" class="btn btn-danger text-uppercase pl-5 pr-5">
+        LogOut
+    </button>
+    
+    <table class="table table-bordered">
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Body</th>
+        <th *ngIf="isAdmin" width="220px">Action</th>
+      </tr>
+      <tr  *ngFor="let post of posts">
+        <td>{{ post?.id }}</td>
+        <td>{{ post?.title }}</td>
+        <td>{{ post?.body }}</td>
+        <td *ngIf="isAdmin" >
+          <a href="#" [routerLink]="['/post/', post.id, 'view']" class="btn btn-info">View</a>
+          <a href="#" [routerLink]="['/post/', post.id, 'edit']" class="btn btn-primary">Edit</a>
+          <button type="button" (click)="deletePost(post.id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </table>
+ </div>
